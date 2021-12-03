@@ -13,7 +13,6 @@ with open('input/day3.txt') as f:
     file = [i for i in f.read().splitlines()]
 
 # Part 1
-count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 gamma = ""
 epsilon = ""
 
