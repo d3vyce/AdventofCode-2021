@@ -22,3 +22,24 @@ for i in count:
 
 print("Part 1 : ", int(gamma, 2)*int(epsilon, 2))
 
+# Part 2
+print(gamma)
+
+search_g = file
+
+for i in range(len(gamma)):
+    search_g = [y for y in search_g if int(y[i]) == int(gamma[i])]
+    if(len(search_g) == 1): break
+
+print(search_g)
+
+search_e = file
+print(epsilon)
+
+for i in range(len(epsilon)):
+    search_e = [y for y in search_e if int(y[i]) == int(epsilon[i])]
+    if(len(search_e) == 6): break
+
+print(search_e)
+
+print("Part 1 : ", int(search_g[0], 2))
