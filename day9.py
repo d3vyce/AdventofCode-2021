@@ -9,10 +9,10 @@ def check_coord(x, y, matrix):
     if(x < 0 or x >= x_max or y < 0 or y >= y_max): return 10
     else : return int(matrix[x][y])
 
-def limit(x, y, matrix):
+def check_limit(x, y, matrix):
     result = check_coord(x, y, matrix)
     if(result < 9): return result
-    else: return -1
+    else: return 0
 
 def check_basins(x, y, matrix):
     x_max = len(file)
@@ -27,17 +27,16 @@ def check_basins(x, y, matrix):
 
         if (x, y) in basins_loc:
             continue
+        else: basins_loc.add((x, y))
 
-        basins_loc.add((x, y))
-
-        val = limit(x, y, matrix)
-        if limit(x - 1, y, matrix) > val:
+        val = check_limit(x, y, matrix)
+        if check_limit(x - 1, y, matrix) > val:
             loc_to_check.append((x - 1, y))
-        if limit(x + 1, y, matrix) > val:
+        if check_limit(x + 1, y, matrix) > val:
             loc_to_check.append((x + 1, y))
-        if limit(x, y - 1, matrix) > val:
+        if check_limit(x, y - 1, matrix) > val:
             loc_to_check.append((x, y - 1))
-        if limit(x, y + 1, matrix) > val:
+        if check_limit(x, y + 1, matrix) > val:
             loc_to_check.append((x, y + 1))
 
     return len(basins_loc)
